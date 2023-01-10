@@ -141,10 +141,7 @@ def backwards_track(frames, tracker_type, bbox):
 
     bbox_results = {}
     frame_results = list()
-    ok = tracker.init(frames[0], bbox)
-    if not ok:
-        print ('failed to init tracker')
-        return 
+    tracker.init(frames[0], bbox)
     current_frame = 0
     for frame in frames:
  
