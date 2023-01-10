@@ -55,7 +55,8 @@ def opencv_track(file, tracker_type, start, bbox, fast, live):
     extra_size = 8
 
     # Reshape bbox input
-    bbox = (bbox[0]-extra_size, bbox[1]-extra_size, bbox[2]+extra_size*2, bbox[3]+extra_size*2)
+    bbox = (int(bbox[0]-extra_size), int(bbox[1]-extra_size), 
+            int(bbox[2]+extra_size*2), int(bbox[3]+extra_size*2))
     initial_bbox = bbox
 
     # Go through each frame
@@ -81,7 +82,8 @@ def opencv_track(file, tracker_type, start, bbox, fast, live):
 
         if current_frame == start:
             # Initialize tracker with starting frame and bounding box
-            ok = tracker.init(frame, bbox)
+            tracker.init(frame, bbox)
+            ok = True
 
         if not ok:
             print ('failed to init tracker')

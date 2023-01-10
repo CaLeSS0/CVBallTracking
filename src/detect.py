@@ -53,6 +53,7 @@ def detect(image):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     os.makedirs("output", exist_ok=True)
+    os.makedirs("temp", exist_ok=True)
 
     # Set up model
     model = Darknet(model_def, img_size=image_size).to(device)

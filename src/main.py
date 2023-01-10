@@ -1,11 +1,3 @@
-"""
-
-Example run:
-
-python main.py --video ../sample_data/1LdhIsz6INQ.mp4
-
-"""
-
 import argparse
 import cv2 as cv
 import sys
